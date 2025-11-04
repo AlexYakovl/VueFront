@@ -1,9 +1,6 @@
-<script setup>
-import TheWelcome from '../components/TheWelcome.vue'
-</script>
-
 <template>
-  <main>
-    <TheWelcome />
-  </main>
+  <div>
+    <h2>Главная страница</h2>
+    <p>Добро пожаловать в клиентское приложение Банка!</p>
+  </div>
 </template>
