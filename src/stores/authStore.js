@@ -1,5 +1,7 @@
 import { defineStore } from 'pinia'
 import axios from 'axios'
+import {useAccountsStore} from "@/stores/accountStore.js";
+const backendUrl = import.meta.env.VITE_BACKEND_URL
 
 export const useAuthStore = defineStore('auth',{
     state: () => ({
@@ -7,12 +9,13 @@ export const useAuthStore = defineStore('auth',{
       token: localStorage.getItem('token') || null,
       isAuthenticated: false,
       errorMessage: "",
+
     }),
   actions:{
       async login(credentials){
         this.errorMessage = "";
         try{
-          const response = await axios.post("http://localhost:8000/api/login", credentials);
+          const response = await axios.post(backendUrl +"/login", credentials);
           this.token = response.data.token;
           this.user = response.data.user;
           this.isAuthenticated = true;
@@ -24,7 +27,7 @@ export const useAuthStore = defineStore('auth',{
       },
       async getUser(){
         try{
-          const response = await axios.get("http://localhost:8000/api/user",
+          const response = await axios.get(backendUrl + "/user",
             {headers:{ Authorization: 'Bearer ' + this.token
             }});
           this.user = response.data;
@@ -37,6 +40,8 @@ export const useAuthStore = defineStore('auth',{
         this.user = null;
         this.isAuthenticated = false;
         localStorage.removeItem('token');
+        const accountsStore = useAccountsStore();
+        accountsStore.clear();
       }
   },
 

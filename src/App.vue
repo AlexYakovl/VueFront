@@ -133,6 +133,7 @@ export default {
   methods: {
     logout() {
       this.authStore.logout();
+      this.$router.push('/');
     },
     login() {
       this.authStore.login({
