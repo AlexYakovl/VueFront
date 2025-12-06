@@ -16,7 +16,7 @@
         severity="secondary"
         :outlined="selectedAccount?.id !== acc.id"
       >
-        {{ acc.number}} ({{ acc.currency }} ₽)
+        Счет: {{ acc.number}} ({{ acc.currency }})
       </Button>
     </div>
 
@@ -42,7 +42,7 @@
         <Column field="id" header="ID"/>
         <Column field="type" header="Тип"/>
         <Column field="amount" header="Сумма"/>
-        <Column field="created_at" header="Дата"/>
+        <Column field="transaction_time" header="Дата"/>
       </DataTable>
     </div>
   </div>

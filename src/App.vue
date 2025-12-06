@@ -23,7 +23,7 @@
         </div>
         <div v-else>
           <form @submit.prevent="login">
-            <InputText v-model="email" type="email" id="email" required placeholder="Логин"
+            <InputText v-model="email" type="email" id="email" required placeholder="Почта"
                        class="m-2 sm:w-auto" :class="{ 'p-invalid': authError }"/>
             <InputText v-model="password" type="password" id="password" required placeholder="Пароль"
                        class="m-2 sm:w-auto" :class="{ 'p-invalid': authError }"/>
@@ -115,6 +115,11 @@ export default {
           label: 'Профиль',
           icon: 'pi pi-fw pi-box',
           route: '/profile',
+        },
+        {
+          label: 'Добавить транзакцию',
+          icon: 'pi pi-fw pi-plus',
+          route: '/transactions/create'
         }
       ]
     };

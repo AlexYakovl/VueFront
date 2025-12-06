@@ -25,7 +25,7 @@ export const useAccountsStore = defineStore("accounts", {
       this.loading = true;
       this.errorMessage = "";
       try {
-        const response = await axios.get(`${backendUrl}/api/accounts`, {
+        const response = await axios.get(`${backendUrl}/accounts`, {
           headers: {
             Authorization: "Bearer " + localStorage.getItem("token"),
           },
@@ -42,7 +42,7 @@ export const useAccountsStore = defineStore("accounts", {
       this.loading = true;
       try {
         const response = await axios.get(
-          `${backendUrl}/api/accounts/${account_id}/transactions`,
+          `${backendUrl}/accounts/${account_id}/transactions`,
           {
             headers: {
               Authorization: "Bearer " + localStorage.getItem("token"),
@@ -61,7 +61,7 @@ export const useAccountsStore = defineStore("accounts", {
     async getTransactionsTotal(account_id) {
       try {
         const response = await axios.get(
-          `${backendUrl}/api/accounts/${account_id}/transactions_total`,
+          `${backendUrl}/accounts/${account_id}/transactions_total`,
           {
             headers: {
               Authorization: "Bearer " + localStorage.getItem("token"),

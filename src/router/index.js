@@ -19,6 +19,12 @@ const routes = [
     name: 'profile',
     component: ProfileView,
   },
+  {
+    path: "/transactions/create",
+    name: "CreateTransaction",
+    component: () => import("@/views/CreateTransaction.vue"),
+  },
+
 ]
 
 const router = createRouter({

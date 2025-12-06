@@ -1,7 +1,7 @@
 import { defineStore } from 'pinia'
 import axios from 'axios'
 import {useAccountsStore} from "@/stores/accountStore.js";
-const backendUrl = import.meta.env.VITE_BACKEND_URL
+const backendUrl = import.meta.env.VITE_BACKEND_URL;
 
 export const useAuthStore = defineStore('auth',{
     state: () => ({
