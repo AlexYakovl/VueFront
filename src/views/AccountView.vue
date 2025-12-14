@@ -48,7 +48,7 @@
         <!-- НОВЫЙ СТОЛБЕЦ: ЧЕК -->
         <Column field="receipt_url" header="Чек">
           <template #body="slotProps">
-            <div v-if="slotProps.data && slotProps.data['receipt_url']">
+            <div v-if="slotProps.data['receipt_url']">
               <a :href="slotProps.data['receipt_url']" target="_blank">
                 <img
                   :src="slotProps.data['receipt_url']"
