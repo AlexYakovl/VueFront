@@ -40,7 +40,7 @@
                    v-model="amount" />
       </div>
 
-
+      <br>
       <!-- ИЗОБРАЖЕНИЕ -->
       <div class="mb-4 mt-4">
         <label id="file-label"
@@ -57,7 +57,7 @@
           accept="image/*"
         />
       </div>
-
+      <br>
       <!-- SUBMIT -->
       <div class="flex flex-col mt-6">
         <Button type="submit" label="Создать" />

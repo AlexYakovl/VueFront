@@ -39,11 +39,34 @@
         :first="offset"
         responsive-layout="scroll"
       >
+
         <Column field="id" header="ID"/>
         <Column field="type" header="Тип"/>
         <Column field="amount" header="Сумма"/>
         <Column field="transaction_time" header="Дата"/>
+
+        <!-- НОВЫЙ СТОЛБЕЦ: ЧЕК -->
+        <Column field="receipt_url" header="Чек">
+          <template #body="slotProps">
+            <div v-if="slotProps.data && slotProps.data['receipt_url']">
+              <a :href="slotProps.data['receipt_url']" target="_blank">
+                <img
+                  :src="slotProps.data['receipt_url']"
+                  class="w-16 h-16 object-cover rounded border"
+                  alt="Чек"
+                />
+              </a>
+            </div>
+            <div v-else class="text-gray-400 italic">нет</div>
+          </template>
+        </Column>
+
+
+
+
+
       </DataTable>
+
     </div>
   </div>
 </template>
@@ -92,6 +115,7 @@ export default {
   methods: {
     async selectAccount(account) {
       this.selectedAccount = account;
+
 
       this.offset = 0;
       await this.accountsStore.getTransactions(account.id, 0, this.perpage);

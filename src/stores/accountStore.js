@@ -51,6 +51,7 @@ export const useAccountsStore = defineStore("accounts", {
           }
         );
         this.transactions = response.data;
+        console.log(response.data);
       } catch (error) {
         this.errorMessage = error.message;
       } finally {

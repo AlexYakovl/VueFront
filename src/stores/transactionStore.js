@@ -12,9 +12,6 @@ export const useTransactionStore = defineStore("transactions", {
 
   actions: {
 
-    // -----------------------------
-    // СОЗДАНИЕ РАСХОДНОЙ ТРАНЗАКЦИИ
-    // -----------------------------
     async createExpense(formData) {
       this.errorMessage = "";
       this.errorCode = 0;
@@ -44,9 +41,6 @@ export const useTransactionStore = defineStore("transactions", {
     },
 
 
-    // -----------------------------
-    // СОЗДАНИЕ ДОХОДНОЙ ТРАНЗАКЦИИ
-    // -----------------------------
     async createIncome(formData) {
       this.errorMessage = "";
       this.errorCode = 0;
@@ -76,9 +70,6 @@ export const useTransactionStore = defineStore("transactions", {
     },
 
 
-    // -----------------------------
-    // ОБЩИЙ ОБРАБОТЧИК ОШИБОК
-    // -----------------------------
     handleError(error) {
       if (error.response) {
         this.errorCode = 11;
