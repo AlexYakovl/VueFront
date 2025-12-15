@@ -49,7 +49,7 @@
         <Column field="receipt_url" header="Чек">
           <template #body="slotProps">
             <div v-if="slotProps.data['receipt_url']">
-              <a :href="slotProps.data['receipt_url']" target="_blank">
+              <a :href="slotProps.data['receipt_url']">
                 <img
                   :src="slotProps.data['receipt_url']"
                   class="w-16 h-16 object-cover rounded border"
